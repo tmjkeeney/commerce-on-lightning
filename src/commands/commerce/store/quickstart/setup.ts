@@ -199,11 +199,20 @@ export class StoreQuickstartSetup extends SfdxCommand {
         this.ux.log(msgs.getMessage('quickstart.setup.setUpIntegrations'));
         await StoreCreate.waitForStoreId(this.statusFileManager, this.ux);
         this.ux.log(msgs.getMessage('quickstart.setup.regAndMapIntegrations'));
-        const integrations = [
-            ['B2BCheckInventorySample', 'CHECK_INVENTORY', 'Inventory'],
-            ['B2BDeliverySample', 'COMPUTE_SHIPPING', 'Shipment'],
-            ['B2BTaxSample', 'COMPUTE_TAXES', 'Tax'],
-        ];
+        let integrations;
+        if (StoreQuickstartSetup.getStoreType(this.org.getUsername(), this.flags['store-name'], this.ux) === 'B2B') {
+            integrations = [
+                ['B2BCheckInventorySample', 'CHECK_INVENTORY', 'Inventory'],
+                ['B2BDeliverySampleN', 'COMPUTE_SHIPPING', 'Shipment'],
+                ['B2BTaxSample', 'COMPUTE_TAXES', 'Tax'],
+            ];
+        } else {
+            integrations = [
+                ['B2BCheckInventorySample', 'CHECK_INVENTORY', 'Inventory'],
+                ['B2BDeliverySample', 'COMPUTE_SHIPPING', 'Shipment'],
+                ['B2BTaxSample', 'COMPUTE_TAXES', 'Tax'],
+            ];
+        }
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         integrations.forEach((args) => this.registerAndMapIntegration(...args));
         this.ux.log(msgs.getMessage('quickstart.setup.doneRegAndMapIntegrations'));
@@ -593,6 +602,7 @@ export class StoreQuickstartSetup extends SfdxCommand {
         pathToGuestProfile = this.storeDir + '/guest-user-profile-setup';
         // Guest Profile has a space in the name. Do not be alarmed.
         const srcGuestProfile = `${pathToGuestProfile}/profiles/InsertStoreNameHere Profile.profile`;
+
         const trgtGuestProfile = `${pathToGuestProfile}/profiles/${communityNetworkName} Profile.profile`;
         fs.renameSync(srcGuestProfile, trgtGuestProfile);
         shell(`cd "${scratchOrgDir}" && sfdx force:mdapi:convert -r "${pathToGuestProfile}" -d "${tmpDirName}"`);

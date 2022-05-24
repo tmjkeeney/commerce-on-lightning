@@ -5,8 +5,8 @@
         <members>B2BCheckInventorySampleTest</members>
         <members>B2BPricingSample</members>
         <members>B2BPricingSampleTest</members>
-        <members>B2BDeliverySample</members>
-        <members>B2BDeliverySampleTest</members>
+        <members>B2BDeliverySampleN</members>
+        <members>B2BDeliverySampleNTest</members>
         <members>B2BTaxSample</members>
         <members>B2BTaxSampleTest</members>
         <name>ApexClass</name>

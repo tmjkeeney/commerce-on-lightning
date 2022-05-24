@@ -9,11 +9,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>B2BDeliverySample</apexClass>
+        <apexClass>B2BDeliverySampleN</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>B2BDeliverySampleTest</apexClass>
+        <apexClass>B2BDeliverySampleNTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -322,14 +322,14 @@
         <object>ProductCategoryProduct</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>    
-        <allowCreate>false</allowCreate>    
-        <allowDelete>false</allowDelete>    
-        <allowEdit>false</allowEdit>    
-        <allowRead>true</allowRead> 
-        <modifyAllRecords>false</modifyAllRecords>  
-        <object>ProductMedia</object>   
-        <viewAllRecords>false</viewAllRecords>  
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductMedia</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
