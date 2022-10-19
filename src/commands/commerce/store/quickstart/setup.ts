@@ -662,17 +662,6 @@ export class StoreQuickstartSetup extends SfdxCommand {
             );
         }
 
-        this.ux.log("Skipping the nav menu part");
-        /*const navMenuItemMetaFile =
-            this.storeDir + '/experience-bundle-package/unpackaged/navigationMenus/Default_Navigation.navigationMenu';
-        fs.writeFileSync(
-            navMenuItemMetaFile,
-            fs
-                .readFileSync(navMenuItemMetaFile)
-                .toString()
-                .replace('<publiclyAvailable>false', '<publiclyAvailable>true')
-        );*/
-
         this.ux.log(msgs.getMessage('quickstart.setup.enableGuestBrowsingForWebStoreAndCreateGuestBuyerProfile'));
         // Assign to Buyer Group of choice.
         forceDataRecordUpdate(
