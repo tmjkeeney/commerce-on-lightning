@@ -661,7 +661,9 @@ export class StoreQuickstartSetup extends SfdxCommand {
                     .replace('"isRelaxedCSPLevel" : false,', '"isRelaxedCSPLevel" : true,')
             );
         }
-        const navMenuItemMetaFile =
+
+        this.ux.log("Skipping the nav menu part");
+        /*const navMenuItemMetaFile =
             this.storeDir + '/experience-bundle-package/unpackaged/navigationMenus/Default_Navigation.navigationMenu';
         fs.writeFileSync(
             navMenuItemMetaFile,
@@ -669,7 +671,7 @@ export class StoreQuickstartSetup extends SfdxCommand {
                 .readFileSync(navMenuItemMetaFile)
                 .toString()
                 .replace('<publiclyAvailable>false', '<publiclyAvailable>true')
-        );
+        );*/
 
         this.ux.log(msgs.getMessage('quickstart.setup.enableGuestBrowsingForWebStoreAndCreateGuestBuyerProfile'));
         // Assign to Buyer Group of choice.
